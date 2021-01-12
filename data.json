@@ -1,0 +1,70 @@
+// Copy and paste this data next to the "tabs": block in both script tags
+[
+  {
+    "title": "Stocks",
+    "symbols": [
+      {
+        "s": "NASDAQ:AMZN",
+        "d": "Amazon"
+      },
+      {
+        "s": "NASDAQ:TSLA",
+        "d": "Tesla"
+      },
+      {
+        "s": "NASDAQ:MSFT",
+        "d": "Microsoft"
+      },
+      {
+        "s": "NASDAQ:GOOG",
+        "d": "Google"
+      },
+      {
+        "s": "TSX:LSPD",
+        "d": "Lightspeed"
+      },
+      {
+        "s": "TSXV:GRN",
+        "d": "Greenlane Renewables"
+      },
+      {
+        "s": "NYSE:PRLB",
+        "d": "Proto Labs"
+      }
+    ]
+  },
+  {
+    "title": "ETFs",
+    "symbols": []
+  },
+  {
+    "title": "Crypto",
+    "symbols": [
+      {
+        "s": "CAPITALCOM:BTCCAD",
+        "d": "Bitcoin"
+      },
+      {
+        "s": "CAPITALCOM:ETHCAD",
+        "d": "Ether"
+      }
+    ]
+  },
+  {
+    "title": "Indices",
+    "symbols": [
+      {
+        "s": "CURRENCYCOM:US500",
+        "d": "S&P 500"
+      },
+      {
+        "s": "NASDAQ:NDAQ",
+        "d": "Nasdaq"
+      },
+      {
+        "s": "TSX:TSX",
+        "d": "TSX"
+      }
+    ]
+  }
+]
