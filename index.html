@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notion Stock Widget</title>
+  </head>
+  <body>
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright">
+        <a href="https://www.tradingview.com" rel="noopener" target="_blank"
+          ><span class="blue-text">Stocks</span></a
+        >
+        <span class="blue-text">and</span>
+        <a href="https://www.tradingview.com" rel="noopener" target="_blank"
+          ><span class="blue-text">Crypto</span></a
+        >
+        by TradingView
+      </div>
+      <script
+        type="text/javascript"
+        src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+        async
+      >
+          {
+          "colorTheme": "light",
+          "dateRange": "1D",
+          "showChart": true,
+          "locale": "en",
+          "largeChartUrl": "",
+          "isTransparent": true,
+          "showSymbolLogo": true,
+          "width": "800",
+          "height": "800",
+          "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
+          "plotLineColorFalling": "rgba(33, 150, 243, 1)",
+          "gridLineColor": "rgba(238, 238, 238, 1)",
+          "scaleFontColor": "rgba(255, 255, 255, 1)",
+          "belowLineFillColorGrowing": "rgba(33, 150, 243, 0.12)",
+          "belowLineFillColorFalling": "rgba(33, 150, 243, 0.12)",
+          "symbolActiveColor": "rgba(33, 150, 243, 0.12)",
+          "tabs": [
+            {
+              "title": "Stocks",
+              "symbols": [
+                {
+                  "s": "NASDAQ:AMZN",
+                  "d": "Amazon"
+                },
+                {
+                  "s": "NASDAQ:TSLA",
+                  "d": "Tesla"
+                },
+                {
+                  "s": "NASDAQ:MSFT",
+                  "d": "Microsoft"
+                },
+                {
+                  "s": "NASDAQ:GOOG",
+                  "d": "Google"
+                },
+                {
+                  "s": "TSX:LSPD",
+                  "d": "Lightspeed"
+                },
+                {
+                  "s": "TSXV:GRN",
+                  "d": "Greenlane Renewables"
+                },
+                {
+                  "s": "NYSE:PRLB",
+                  "d": "Proto Labs"
+                }
+              ]
+            },
+            {
+              "title": "Crypto",
+              "symbols": [
+                {
+                  "s": "CAPITALCOM:BTCCAD",
+                  "d": "Bitcoin"
+                },
+                {
+                  "s": "KRAKEN:ETHCAD",
+                  "d": "Ether"
+                }
+              ]
+            },
+            {
+              "title": "Indices",
+              "symbols": [
+                {
+                  "s": "CURRENCYCOM:US500",
+                  "d": "S&P 500"
+                },
+                {
+                  "s": "NASDAQ:NDAQ",
+                  "d": "Nasdaq"
+                },
+                {
+                  "s": "TSX:TSX",
+                  "d": "TSX"
+                }
+              ],
+              "originalTitle": "Indices"
+            },
+            {
+              "title": "ETFs",
+              "symbols": []
+            }
+          ]
+        }
+      </script>
+    </div>
+    <!-- TradingView Widget END -->
+  </body>
+</html>
