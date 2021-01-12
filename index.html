@@ -4,62 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notion Stock Widget</title>
+    <!-- CSS for widget -->
     <style>
       body {
-          min-height: 100vh;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          margin: 0;
-          padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
       }
       .settings {
-          text-align: center;
-          border-color: 1px;
-          background-color: #eee;
-          position: fixed;
-          right: 0;
-          bottom: 0;
-          opacity: 0;
-          transition: opacity 0.2s;
+        text-align: center;
+        border-color: 1px;
+        background-color: #eee;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transition: opacity 0.2s;
       }
-
       .settings:hover {
-          opacity: 1;
+        opacity: 1;
       }
-
       .settings button {
-          border: none;
-          background: none;
-          text-transform: capitalize;
-          cursor: pointer;
-          transition: opacity 0.2s;
+        border: none;
+        background: none;
+        text-transform: capitalize;
+        cursor: pointer;
+        transition: opacity 0.2s;
       }
-
       .settings button:hover {
-          opacity: 0.6;
+        opacity: 0.6;
       }
-
       .settings .modes button {
-          font-size: 2rem;
+        font-size: 2rem;
       }
       .light {
-          color: rgba(0, 0, 0, 0.9);
-          background-color: #ffffff !important;
+        color: rgba(0, 0, 0, 0.9);
+        background-color: #ffffff !important;
       }
-
       .dark {
-          color: rgba(255, 255, 255, 0.9);
-          background-color: rgb(47, 52, 55) !important;
+        color: rgba(255, 255, 255, 0.9);
+        background-color: rgb(47, 52, 55) !important;
       }
-  </style>
+    </style>
   </head>
   <body class="light">
+    <!-- Light/Dark Btn -->
     <div class="settings">
-      <div class="modes sans">
-          <button class="light">Light</button>
-          <button class="dark">Dark</button>
+      <div class="modes">
+        <button class="light">Light</button>
+        <button class="dark">Dark</button>
       </div>
     </div>
     <!-- TradingView Widget BEGIN -->
@@ -170,7 +167,8 @@
         }
       </script>
     </div>
-    <!-- Custom JS for widget styling -->
+    <!-- TradingView Widget END -->
+    <!-- Custom JS for widget styling BEGIN -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const body = document.querySelector("body");
@@ -179,9 +177,9 @@
         );
 
         function updateStyle() {
-          const mode = localStorage.getItem('mode') || 'light';
+          const mode = localStorage.getItem("mode") || "light";
           changeMode(mode);
-      }
+        }
         function changeMode(value) {
           body.className = value;
           localStorage.setItem("mode", value);
@@ -196,6 +194,6 @@
         updateStyle();
       });
     </script>
-    <!-- TradingView Widget END -->
+    <!-- Custom JS END -->
   </body>
 </html>
