@@ -4,8 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notion Stock Widget</title>
+    <style>
+      body {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
+      }
+      .settings {
+          text-align: center;
+          border-color: 1px;
+          background-color: #eee;
+          position: fixed;
+          right: 0;
+          bottom: 0;
+          opacity: 0;
+          transition: opacity 0.2s;
+      }
+
+      .settings:hover {
+          opacity: 1;
+      }
+
+      .settings button {
+          border: none;
+          background: none;
+          text-transform: capitalize;
+          cursor: pointer;
+          transition: opacity 0.2s;
+      }
+
+      .settings button:hover {
+          opacity: 0.6;
+      }
+
+      .settings .modes button {
+          font-size: 2rem;
+      }
+      .light {
+          color: rgba(0, 0, 0, 0.9);
+          background-color: #ffffff !important;
+      }
+
+      .dark {
+          color: rgba(255, 255, 255, 0.9);
+          background-color: rgb(47, 52, 55) !important;
+      }
+  </style>
   </head>
-  <body>
+  <body class="light">
+    <div class="settings">
+      <div class="modes sans">
+          <button class="light">Light</button>
+          <button class="dark">Dark</button>
+      </div>
+    </div>
     <!-- TradingView Widget BEGIN -->
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
@@ -32,8 +88,8 @@
           "largeChartUrl": "",
           "isTransparent": true,
           "showSymbolLogo": true,
-          "width": "800",
-          "height": "800",
+          "width": "400",
+          "height": "660",
           "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
           "plotLineColorFalling": "rgba(33, 150, 243, 1)",
           "gridLineColor": "rgba(238, 238, 238, 1)",
@@ -114,6 +170,32 @@
         }
       </script>
     </div>
+    <!-- Custom JS for widget styling -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const body = document.querySelector("body");
+        const modes_buttons = document.querySelectorAll(
+          ".settings .modes button"
+        );
+
+        function updateStyle() {
+          const mode = localStorage.getItem('mode') || 'light';
+          changeMode(mode);
+      }
+        function changeMode(value) {
+          body.className = value;
+          localStorage.setItem("mode", value);
+        }
+
+        modes_buttons.forEach(function (elem) {
+          elem.addEventListener("click", () =>
+            changeMode(elem.classList.value)
+          );
+        });
+
+        updateStyle();
+      });
+    </script>
     <!-- TradingView Widget END -->
   </body>
 </html>
