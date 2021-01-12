@@ -49,6 +49,15 @@
         color: rgba(255, 255, 255, 0.9);
         background-color: rgb(47, 52, 55) !important;
       }
+      /* Hide offscreen */
+      .dark #light {
+        position: absolute;
+        left: -5000px;
+      }
+      .light #dark {
+        position: absolute;
+        left: -5000px;
+      }
     </style>
   </head>
   <body class="light">
@@ -59,26 +68,26 @@
         <button class="dark">Dark</button>
       </div>
     </div>
-    <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container">
+    <!-- TradingView DARK Widget BEGIN -->
+    <div class="tradingview-widget-container" id="dark">
       <div class="tradingview-widget-container__widget"></div>
       <div class="tradingview-widget-copyright">
-        <a href="https://www.tradingview.com" rel="noopener" target="_blank"
-          ><span class="blue-text">Stocks</span></a
-        >
+        <a href="https://www.tradingview.com" rel="noopener" target="_blank">
+          <span class="blue-text">Stocks</span>
+        </a>
         <span class="blue-text">and</span>
-        <a href="https://www.tradingview.com" rel="noopener" target="_blank"
-          ><span class="blue-text">Crypto</span></a
-        >
-        by TradingView
+        <a href="https://www.tradingview.com" rel="noopener" target="_blank">
+          <span class="blue-text">Crypto</span> </a
+        >by TradingView
       </div>
       <script
         type="text/javascript"
         src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+        id="iframe"
         async
       >
           {
-          "colorTheme": "light",
+          "colorTheme": "dark",
           "dateRange": "1D",
           "showChart": true,
           "locale": "en",
@@ -129,6 +138,10 @@
               ]
             },
             {
+              "title": "ETFs",
+              "symbols": []
+            },
+            {
               "title": "Crypto",
               "symbols": [
                 {
@@ -136,7 +149,7 @@
                   "d": "Bitcoin"
                 },
                 {
-                  "s": "KRAKEN:ETHCAD",
+                  "s": "CAPITALCOM:ETHCAD",
                   "d": "Ether"
                 }
               ]
@@ -156,18 +169,121 @@
                   "s": "TSX:TSX",
                   "d": "TSX"
                 }
-              ],
-              "originalTitle": "Indices"
-            },
-            {
-              "title": "ETFs",
-              "symbols": []
+              ]
             }
           ]
         }
       </script>
     </div>
-    <!-- TradingView Widget END -->
+    <!-- TradingView DARK Widget END -->
+    <!-- TradingView LIGHT Widget BEGIN -->
+    <div class="tradingview-widget-container" id="light">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright">
+        <a href="https://www.tradingview.com" rel="noopener" target="_blank">
+          <span class="blue-text">Stocks</span>
+        </a>
+        <span class="blue-text">and</span>
+        <a href="https://www.tradingview.com" rel="noopener" target="_blank">
+          <span class="blue-text">Crypto</span> </a
+        >by TradingView
+      </div>
+      <script
+        type="text/javascript"
+        src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+        id="iframe"
+        async
+      >
+          {
+          "colorTheme": "light",
+          "dateRange": "1D",
+          "showChart": true,
+          "locale": "en",
+          "largeChartUrl": "",
+          "isTransparent": true,
+          "showSymbolLogo": true,
+          "width": "400",
+          "height": "660",
+          "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
+          "plotLineColorFalling": "rgba(33, 150, 243, 1)",
+          "gridLineColor": "rgba(110, 110, 110, 1)",
+          "scaleFontColor": "rgba(0, 0, 0, 1)",
+          "belowLineFillColorGrowing": "rgba(33, 150, 243, 0.12)",
+          "belowLineFillColorFalling": "rgba(33, 150, 243, 0.12)",
+          "symbolActiveColor": "rgba(33, 150, 243, 0.12)",
+          "tabs": [
+            {
+              "title": "Stocks",
+              "symbols": [
+                {
+                  "s": "NASDAQ:AMZN",
+                  "d": "Amazon"
+                },
+                {
+                  "s": "NASDAQ:TSLA",
+                  "d": "Tesla"
+                },
+                {
+                  "s": "NASDAQ:MSFT",
+                  "d": "Microsoft"
+                },
+                {
+                  "s": "NASDAQ:GOOG",
+                  "d": "Google"
+                },
+                {
+                  "s": "TSX:LSPD",
+                  "d": "Lightspeed"
+                },
+                {
+                  "s": "TSXV:GRN",
+                  "d": "Greenlane Renewables"
+                },
+                {
+                  "s": "NYSE:PRLB",
+                  "d": "Proto Labs"
+                }
+              ]
+            },
+            {
+              "title": "ETFs",
+              "symbols": []
+            },
+            {
+              "title": "Crypto",
+              "symbols": [
+                {
+                  "s": "CAPITALCOM:BTCCAD",
+                  "d": "Bitcoin"
+                },
+                {
+                  "s": "CAPITALCOM:ETHCAD",
+                  "d": "Ether"
+                }
+              ]
+            },
+            {
+              "title": "Indices",
+              "symbols": [
+                {
+                  "s": "CURRENCYCOM:US500",
+                  "d": "S&P 500"
+                },
+                {
+                  "s": "NASDAQ:NDAQ",
+                  "d": "Nasdaq"
+                },
+                {
+                  "s": "TSX:TSX",
+                  "d": "TSX"
+                }
+              ]
+            }
+          ]
+        }
+      </script>
+    </div>
+    <!-- TradingView LIGHT Widget END -->
     <!-- Custom JS for widget styling BEGIN -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -183,6 +299,7 @@
         function changeMode(value) {
           body.className = value;
           localStorage.setItem("mode", value);
+          document.getElementById("widgetsettings").setAttribute("width", 500);
         }
 
         modes_buttons.forEach(function (elem) {
