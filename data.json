@@ -19,6 +19,15 @@
           "displayName": "IPAY"
         }
       ]
+    },
+    {
+      "name": "Watch List",
+      "symbols": [
+      {
+        "name": "AMEX:IPAY",
+        "displayName": "IPAY"
+      }
+      ]
     }
   ],
   "showSymbolLogo": true,
