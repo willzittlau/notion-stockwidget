@@ -4,61 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notion Stock Widget</title>
-    <!-- CSS for widget -->
-    <style>
-      body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-      }
-      .settings {
-        text-align: center;
-        border-color: 1px;
-        background-color: #eee;
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-        transition: opacity 0.2s;
-      }
-      .settings:hover {
-        opacity: 1;
-      }
-      .settings button {
-        border: none;
-        background: none;
-        text-transform: capitalize;
-        cursor: pointer;
-        transition: opacity 0.2s;
-      }
-      .settings button:hover {
-        opacity: 0.6;
-      }
-      .settings .modes button {
-        font-size: 2rem;
-      }
-      .light {
-        color: rgba(0, 0, 0, 0.9);
-        background-color: #ffffff !important;
-      }
-      .dark {
-        color: rgba(255, 255, 255, 0.9);
-        background-color: rgb(47, 52, 55) !important;
-      }
-      /* Hide offscreen */
-      .dark #light {
-        position: absolute;
-        left: -5000px;
-      }
-      .light #dark {
-        position: absolute;
-        left: -5000px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body class="light">
     <!-- Light/Dark Btn -->
@@ -68,251 +14,98 @@
         <button class="dark">Dark</button>
       </div>
     </div>
-    <!-- TradingView DARK Widget BEGIN -->
+    <!-- TradingView Widget BEGIN -->
     <div class="tradingview-widget-container" id="dark">
       <div class="tradingview-widget-container__widget"></div>
       <div class="tradingview-widget-copyright">
-        <a href="https://www.tradingview.com" rel="noopener" target="_blank">
-          <span class="blue-text">Stocks</span>
-        </a>
-        <span class="blue-text">and</span>
-        <a href="https://www.tradingview.com" rel="noopener" target="_blank">
-          <span class="blue-text">Crypto</span> </a
-        >by TradingView
+        <a href="https://www.tradingview.com" rel="noopener" target="_blank"
+          ><span class="blue-text">ETFs</span></a
+        >
+        by TradingView
       </div>
       <script
         type="text/javascript"
-        src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
-        id="iframe"
+        src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
         async
       >
           {
-          "colorTheme": "dark",
-          "dateRange": "1D",
-          "showChart": true,
-          "locale": "en",
-          "largeChartUrl": "",
-          "isTransparent": true,
-          "showSymbolLogo": true,
-          "width": "400",
-          "height": "660",
-          "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
-          "plotLineColorFalling": "rgba(33, 150, 243, 1)",
-          "gridLineColor": "rgba(238, 238, 238, 1)",
-          "scaleFontColor": "rgba(255, 255, 255, 1)",
-          "belowLineFillColorGrowing": "rgba(33, 150, 243, 0.12)",
-          "belowLineFillColorFalling": "rgba(33, 150, 243, 0.12)",
-          "symbolActiveColor": "rgba(33, 150, 243, 0.12)",
-          "tabs":
-          [
+          "width": "100%",
+          "height": "600",
+          "symbolsGroups": [
             {
-              "title": "Stocks",
+              "name": "Stocks",
               "symbols": [
-                {
-                  "s": "NASDAQ:AMZN",
-                  "d": "Amazon"
-                },
-                {
-                  "s": "NASDAQ:TSLA",
-                  "d": "Tesla"
-                },
-                {
-                  "s": "NASDAQ:MSFT",
-                  "d": "Microsoft"
-                },
-                {
-                  "s": "NASDAQ:GOOG",
-                  "d": "Google"
-                },
-                {
-                  "s": "TSX:LSPD",
-                  "d": "Lightspeed"
-                },
-                {
-                  "s": "TSXV:GRN",
-                  "d": "Greenlane Renewables"
-                },
-                {
-                  "s": "NYSE:PRLB",
-                  "d": "Proto Labs"
-                }
+              {
+                "name": "AMEX:IPAY",
+                "displayName": "IPAY"
+              }
               ]
             },
             {
-              "title": "ETFs",
-              "symbols": []
-            },
-            {
-              "title": "Crypto",
+              "name": "ETFs",
               "symbols": [
                 {
-                  "s": "CAPITALCOM:BTCCAD",
-                  "d": "Bitcoin"
-                },
-                {
-                  "s": "CAPITALCOM:ETHCAD",
-                  "d": "Ether"
-                }
-              ]
-            },
-            {
-              "title": "Indices",
-              "symbols": [
-                {
-                  "s": "CURRENCYCOM:US500",
-                  "d": "S&P 500"
-                },
-                {
-                  "s": "NASDAQ:NDAQ",
-                  "d": "Nasdaq"
-                },
-                {
-                  "s": "TSX:TSX",
-                  "d": "TSX"
+                  "name": "AMEX:IPAY",
+                  "displayName": "IPAY"
                 }
               ]
             }
-          ]
+          ],
+          "showSymbolLogo": true,
+          "colorTheme": "dark",
+          "isTransparent": true,
+          "locale": "en"
         }
       </script>
     </div>
-    <!-- TradingView DARK Widget END -->
-    <!-- TradingView LIGHT Widget BEGIN -->
+    <!-- TradingView Widget END -->
+    <!-- TradingView Widget BEGIN -->
     <div class="tradingview-widget-container" id="light">
       <div class="tradingview-widget-container__widget"></div>
       <div class="tradingview-widget-copyright">
-        <a href="https://www.tradingview.com" rel="noopener" target="_blank">
-          <span class="blue-text">Stocks</span>
-        </a>
-        <span class="blue-text">and</span>
-        <a href="https://www.tradingview.com" rel="noopener" target="_blank">
-          <span class="blue-text">Crypto</span> </a
-        >by TradingView
+        <a href="https://www.tradingview.com" rel="noopener" target="_blank"
+          ><span class="blue-text">ETFs</span></a
+        >
+        by TradingView
       </div>
       <script
         type="text/javascript"
-        src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
-        id="iframe"
+        src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
         async
       >
           {
-          "colorTheme": "light",
-          "dateRange": "1D",
-          "showChart": true,
-          "locale": "en",
-          "largeChartUrl": "",
-          "isTransparent": true,
-          "showSymbolLogo": true,
-          "width": "400",
-          "height": "660",
-          "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
-          "plotLineColorFalling": "rgba(33, 150, 243, 1)",
-          "gridLineColor": "rgba(110, 110, 110, 1)",
-          "scaleFontColor": "rgba(0, 0, 0, 1)",
-          "belowLineFillColorGrowing": "rgba(33, 150, 243, 0.12)",
-          "belowLineFillColorFalling": "rgba(33, 150, 243, 0.12)",
-          "symbolActiveColor": "rgba(33, 150, 243, 0.12)",
-          "tabs":
-          [
+          "width": "100%",
+          "height": "600",
+          "symbolsGroups": [
             {
-              "title": "Stocks",
+              "name": "Stocks",
               "symbols": [
-                {
-                  "s": "NASDAQ:AMZN",
-                  "d": "Amazon"
-                },
-                {
-                  "s": "NASDAQ:TSLA",
-                  "d": "Tesla"
-                },
-                {
-                  "s": "NASDAQ:MSFT",
-                  "d": "Microsoft"
-                },
-                {
-                  "s": "NASDAQ:GOOG",
-                  "d": "Google"
-                },
-                {
-                  "s": "TSX:LSPD",
-                  "d": "Lightspeed"
-                },
-                {
-                  "s": "TSXV:GRN",
-                  "d": "Greenlane Renewables"
-                },
-                {
-                  "s": "NYSE:PRLB",
-                  "d": "Proto Labs"
-                }
+              {
+                "name": "AMEX:IPAY",
+                "displayName": "IPAY"
+              }
               ]
             },
             {
-              "title": "ETFs",
-              "symbols": []
-            },
-            {
-              "title": "Crypto",
+              "name": "ETFs",
               "symbols": [
                 {
-                  "s": "CAPITALCOM:BTCCAD",
-                  "d": "Bitcoin"
-                },
-                {
-                  "s": "CAPITALCOM:ETHCAD",
-                  "d": "Ether"
-                }
-              ]
-            },
-            {
-              "title": "Indices",
-              "symbols": [
-                {
-                  "s": "CURRENCYCOM:US500",
-                  "d": "S&P 500"
-                },
-                {
-                  "s": "NASDAQ:NDAQ",
-                  "d": "Nasdaq"
-                },
-                {
-                  "s": "TSX:TSX",
-                  "d": "TSX"
+                  "name": "AMEX:IPAY",
+                  "displayName": "IPAY"
                 }
               ]
             }
-          ]
+          ],
+          "showSymbolLogo": true,
+          "colorTheme": "light",
+          "isTransparent": true,
+          "locale": "en"
         }
       </script>
     </div>
-    <!-- TradingView LIGHT Widget END -->
+    <!-- TradingView Widget END -->
     <!-- Custom JS for widget styling BEGIN -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const body = document.querySelector("body");
-        const modes_buttons = document.querySelectorAll(
-          ".settings .modes button"
-        );
-
-        function updateStyle() {
-          const mode = localStorage.getItem("mode") || "light";
-          changeMode(mode);
-        }
-        function changeMode(value) {
-          body.className = value;
-          localStorage.setItem("mode", value);
-          document.getElementById("widgetsettings").setAttribute("width", 500);
-        }
-
-        modes_buttons.forEach(function (elem) {
-          elem.addEventListener("click", () =>
-            changeMode(elem.classList.value)
-          );
-        });
-
-        updateStyle();
-      });
-    </script>
+    <script src="app.js"></script>
     <!-- Custom JS END -->
   </body>
 </html>

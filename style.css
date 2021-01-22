@@ -1,0 +1,52 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.settings {
+  text-align: center;
+  border-color: 1px;
+  background-color: #eee;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.settings:hover {
+  opacity: 1;
+}
+.settings button {
+  border: none;
+  background: none;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.settings button:hover {
+  opacity: 0.6;
+}
+.settings .modes button {
+  font-size: 2rem;
+}
+.light {
+  color: rgba(0, 0, 0, 0.9);
+  background-color: #ffffff !important;
+}
+.dark {
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgb(47, 52, 55) !important;
+}
+/* Hide offscreen */
+.dark #light {
+  position: absolute;
+  top: -5000px;
+}
+.light #dark {
+  position: absolute;
+  top: -5000px;
+}
